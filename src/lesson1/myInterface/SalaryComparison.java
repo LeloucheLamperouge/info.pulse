@@ -1,4 +1,4 @@
-//package myInterface;
+//package lesson1.myInterface;
 //
 ///**
 // * Created by Lelouch on 03.02.2017.

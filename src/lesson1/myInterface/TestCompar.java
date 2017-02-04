@@ -1,4 +1,4 @@
-package myInterface;
+package lesson1.myInterface;
 
 import java.util.Arrays;
 

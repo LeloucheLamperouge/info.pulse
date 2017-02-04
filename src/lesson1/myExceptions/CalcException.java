@@ -1,4 +1,4 @@
-package myExceptions;
+package lesson1.myExceptions;
 
 /**
  * Created by Lelouch on 31.01.2017.
