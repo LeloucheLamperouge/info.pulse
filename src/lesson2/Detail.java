@@ -30,5 +30,12 @@ public class Detail implements Cloneable {
     public void setDetailName(String detailName) {
         this.detailName = detailName;
     }
+
+    @Override
+    public String toString() {
+        return "Detail{" +
+                "detailName='" + detailName + '\'' +
+                '}';
+    }
 }
 
