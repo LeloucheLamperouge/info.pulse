@@ -1,12 +1,11 @@
 package lesson3.factory;
 
-import lesson3.excep.FactoryException;
 
 /**
  * Created by Lelouch on 11.02.2017.
  */
 public class Main {
-    public static void main(String[] args) throws FactoryException {
+    public static void main(String[] args){
         Worker worker = new Worker("Vasya","start");
         Worker worker1 = new Worker("Petya","paint");
 

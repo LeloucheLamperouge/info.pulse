@@ -1,8 +1,6 @@
 package lesson3.factory;
 
-import lesson3.excep.FactoryException;
 
-import java.util.concurrent.Callable;
 
 /**
  * Created by Lelouch on 11.02.2017.

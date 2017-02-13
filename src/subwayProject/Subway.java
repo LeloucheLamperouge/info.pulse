@@ -1,7 +1,4 @@
 package subwayProject;
-
-
-
 /**
  * Created by Lelouch on 10.02.2017.
  */
