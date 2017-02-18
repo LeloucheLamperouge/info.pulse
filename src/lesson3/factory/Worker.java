@@ -1,14 +1,13 @@
 package lesson3.factory;
 
 
-
 /**
  * Created by Lelouch on 11.02.2017.
  */
 public class Worker {
 
-    private String name;
-    private String skill;
+    protected String name;
+    protected String skill;
 
     public Worker() {
 
@@ -19,36 +18,41 @@ public class Worker {
         this.skill = skill;
     }
 
-    public Car.CarBuilder make() {
-        Car.CarBuilder car = new Car.CarBuilder("Йа машинко");
-        return car;
-    }
+     public Car.CarBuilder start(Car.CarBuilder carName) {
+            if (skill.equals("start")) {
+                Car.CarBuilder carBuilder = new Car.CarBuilder();
+                carBuilder.getName();
+            }
+           return carName;
 
-    public Car.CarBuilder makeCarcase(Car.CarBuilder make) {
-        make.getCarcase();
-        return make;
     }
+        public Car.CarBuilder makeCarcase(Car.CarBuilder make) {
+            make.getCarcase();
+            return make;
 
-    public Car.CarBuilder makePaint(Car.CarBuilder make) {
-        make.getPaint();
-        return make;
-    }
+        }
 
-    public Car.CarBuilder makeWheels(Car.CarBuilder make) {
-        make.getWheels();
-        return make;
-    }
+        public Car.CarBuilder makePaint(Car.CarBuilder make) {
+            make.getPaint();
+            return make;
+        }
 
-    public Car.CarBuilder makeSeats(Car.CarBuilder make) {
-        make.getSeats();
-        return make;
-    }
+        public Car.CarBuilder makeWheels(Car.CarBuilder make) {
+            make.getWheels();
+            return make;
+        }
 
-    @Override
-    public String toString() {
-        return "Worker{" +
-                "name='" + name + '\'' +
-                ", skill='" + skill + '\'' +
-                '}';
-    }
+        public Car.CarBuilder makeSeats(Car.CarBuilder make) {
+            make.getSeats();
+            return make;
+        }
+
+        @Override
+        public String toString() {
+            return "Worker{" +
+                    "name='" + name + '\'' +
+                    ", skill='" + skill + '\'' +
+                    '}';
+        }
+
 }

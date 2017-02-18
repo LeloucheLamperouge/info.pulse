@@ -21,7 +21,7 @@ public class Car {
         this.seats = builder.seats;
     }
 
-    public static class CarBuilder {
+    public static class CarBuilder{
         private String name;
         private String carcase;
         private String paint;
@@ -29,13 +29,14 @@ public class Car {
         private int wheels;
         private int seats;
 
-        public CarBuilder(String name) {
+        public CarBuilder setName(String name) {
             this.name = name;
+            return this;
         }
 
         public CarBuilder setCarcase(String carcase) {
-            this.carcase = carcase;
-            return this;
+                this.carcase = carcase;
+                return this;
         }
 
         public CarBuilder setPaint(String paint) {
@@ -44,11 +45,7 @@ public class Car {
         }
 
         public CarBuilder setWheels(int wheels) {
-            if (wheels < 4) {
-                System.out.println("бида");
-            } else {
-                this.wheels = wheels;
-            }
+            this.wheels = wheels;
             return this;
         }
 
@@ -58,8 +55,12 @@ public class Car {
         }
 
         public Car build() {
-
             return new Car(this);
+        }
+
+        public void newCar() {
+            System.out.println(this.name + " - " + this.carcase + ", " + this.paint + ", " +
+                    " " + this.wheels + " колеса, " + this.seats + " мест для сидения");
         }
 
         public String getName() {
@@ -81,6 +82,8 @@ public class Car {
         public int getSeats() {
             return seats;
         }
+
+
     }
 
     @Override

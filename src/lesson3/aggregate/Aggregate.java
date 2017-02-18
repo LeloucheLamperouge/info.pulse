@@ -15,20 +15,16 @@ public class Aggregate {
 
     public void addDetail(Detail detail) {
         for (int i = 0; i < details.length; i++) {
-
             if (details[i] == null) {
                 details[i] = detail;
                 break;
             }
-
-
         }
     }
 
     public void addDetails(Detail... detail) {
         for (int i = 0; i < detail.length; i++) {
             addDetail(detail[i]);
-
         }
     }
 
