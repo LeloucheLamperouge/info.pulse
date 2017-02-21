@@ -1,89 +1,112 @@
 package lesson3.factory;
 
+import java.util.Arrays;
+
 /**
  * Created by Lelouch on 11.02.2017.
  */
 public class Car {
 
-    private String carName;
-    private String carcase;
-    private String paint;
+    private final String carName;
+    private final String carcase;
+    private final String[] wheels;
+    private final String[] doors;
+    private final String[] seats;
+    public final String steerage;
+    public final String carColor;
+    public final boolean isReady;
 
-    private int wheels;
-    private int seats;
+    public static class CarBuilder {
+        private final String carName;
+        private final String carcase;
+        private String[] wheels;
+        private String[] doors;
+        private String[] seats;
+        public  String steerage;
+        public  String carColor;
+        public  boolean isReady;
 
 
-    public Car(CarBuilder builder) {
-        this.carName = builder.name;
-        this.carcase = builder.carcase;
-        this.paint = builder.paint;
-        this.wheels = builder.wheels;
-        this.seats = builder.seats;
-    }
-
-    public static class CarBuilder{
-        private String name;
-        private String carcase;
-        private String paint;
-
-        private int wheels;
-        private int seats;
-
-        public CarBuilder setName(String name) {
-            this.name = name;
-            return this;
+        public CarBuilder(String carName, String carcase) {
+            this.carName = carName;
+            this.carcase = carcase;
         }
-
-        public CarBuilder setCarcase(String carcase) {
-                this.carcase = carcase;
-                return this;
-        }
-
-        public CarBuilder setPaint(String paint) {
-            this.paint = paint;
-            return this;
-        }
-
-        public CarBuilder setWheels(int wheels) {
+        public CarBuilder setWheels(String...wheels){
             this.wheels = wheels;
             return this;
         }
-
-        public CarBuilder setSeats(int seats) {
-            this.seats = seats;
+        public CarBuilder setDoors(String... doors){
+            this.doors = doors;
             return this;
         }
-
-        public Car build() {
-            return new Car(this);
+        public CarBuilder setSeats(String... seats){
+            this.seats = seats;
+            return  this;
         }
-
-        public void newCar() {
-            System.out.println(this.name + " - " + this.carcase + ", " + this.paint + ", " +
-                    " " + this.wheels + " колеса, " + this.seats + " мест для сидения");
+        public CarBuilder setSteerage(String steerage){
+            this.steerage = steerage;
+            return this;
         }
-
-        public String getName() {
-            return name;
+        public CarBuilder setCarColor(String carColor){
+            this.carColor = carColor;
+            return this;
         }
-
-        public String getCarcase() {
-            return carcase;
+        public CarBuilder setIsReady(boolean isReady){
+            this.isReady = isReady;
+            return this;
         }
-
-        public String getPaint() {
-            return paint;
+        public boolean isReady(){
+            if ((carName != null) && (carcase != null) && (wheels != null) && (doors != null)
+                && (seats != null) && (steerage != null) && (carColor != null))
+                return true;
+            else
+                return false;
         }
-
-        public int getWheels() {
-            return wheels;
+        public Car build(){
+            return (isReady())? new Car(this): null;
         }
+    }
+    public Car(CarBuilder carBuilder){
+        this.carName = carBuilder.carName;
+        this.carcase = carBuilder.carcase;
+        this.wheels = carBuilder.wheels;
+        this.doors = carBuilder.doors;
+        this.seats = carBuilder.seats;
+        this.steerage = carBuilder.steerage;
+        this.carColor = carBuilder.carColor;
+        this.isReady = carBuilder.isReady;
+    }
 
-        public int getSeats() {
-            return seats;
-        }
+    public String getCarName() {
+        return carName;
+    }
 
+    public String getCarcase() {
+        return carcase;
+    }
 
+    public String[] getWheels() {
+        return wheels;
+    }
+
+    public String[] getDoors() {
+        return doors;
+    }
+
+    public String[] getSeats() {
+        return seats;
+    }
+
+    public String getSteerage() {
+        return steerage;
+    }
+
+    public String getCarColor() {
+        return carColor;
+    }
+
+    public boolean isReady() {
+        return isReady;
     }
 
     @Override
@@ -91,9 +114,12 @@ public class Car {
         return "Car{" +
                 "carName='" + carName + '\'' +
                 ", carcase='" + carcase + '\'' +
-                ", paint='" + paint + '\'' +
-                ", wheels=" + wheels +
-                ", seats=" + seats +
+                ", wheels=" + Arrays.toString(wheels) +
+                ", doors=" + Arrays.toString(doors) +
+                ", seats=" + Arrays.toString(seats) +
+                ", steerage='" + steerage + '\'' +
+                ", carColor='" + carColor + '\'' +
+                ", isReady=" + isReady +
                 '}';
     }
 }
