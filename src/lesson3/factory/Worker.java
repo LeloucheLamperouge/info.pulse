@@ -4,9 +4,9 @@ package lesson3.factory;
 /**
  * Created by Lelouch on 11.02.2017.
  */
-public class Worker {
+public abstract class Worker {
 
-    protected String name;
+    public String name;
 
 
     public Worker() {
@@ -15,7 +15,9 @@ public class Worker {
 
     public Worker(String name) {
         this.name = name;
-            }
+    }
+    public enum carType{Jeep, Sport, MiniVan, Sedan, Roadster};
+    public enum carColor{Red, White, Black, Silver};
 
     @Override
     public String toString() {
@@ -23,5 +25,6 @@ public class Worker {
                 "name='" + name + '\'' +
                 '}';
     }
+
 
 }

@@ -18,7 +18,7 @@ public class Car {
 
     public static class CarBuilder {
         private final String carName;
-        private final String carcase;
+        private String carcase;
         private String[] wheels;
         private String[] doors;
         private String[] seats;
@@ -27,9 +27,12 @@ public class Car {
         public  boolean isReady;
 
 
-        public CarBuilder(String carName, String carcase) {
+        public CarBuilder(String carName) {
             this.carName = carName;
+        }
+        public CarBuilder setCarcase(String carcase){
             this.carcase = carcase;
+            return this;
         }
         public CarBuilder setWheels(String...wheels){
             this.wheels = wheels;
@@ -56,12 +59,10 @@ public class Car {
             return this;
         }
         public boolean isReady(){
-            if ((carName != null) && (carcase != null) && (wheels != null) && (doors != null)
-                && (seats != null) && (steerage != null) && (carColor != null))
-                return true;
-            else
-                return false;
-        }
+            return ((carName != null) && (carcase != null) && (wheels != null) && (doors != null)
+                && (seats != null) && (steerage != null) && (carColor != null));
+            }
+
         public Car build(){
             return (isReady())? new Car(this): null;
         }
@@ -104,7 +105,6 @@ public class Car {
     public String getCarColor() {
         return carColor;
     }
-
     public boolean isReady() {
         return isReady;
     }
@@ -118,7 +118,7 @@ public class Car {
                 ", doors=" + Arrays.toString(doors) +
                 ", seats=" + Arrays.toString(seats) +
                 ", steerage='" + steerage + '\'' +
-                ", carColor='" + carColor + '\'' +
+                ", carColor='" + carColor + '\''+
                 ", isReady=" + isReady +
                 '}';
     }
