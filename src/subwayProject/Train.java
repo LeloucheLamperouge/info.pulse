@@ -35,7 +35,10 @@ public class Train implements Cloneable {
 
     public Train(int trainID, int numOfCarriages, Carriage carriage) {
         this.trainID = trainID;
+        if (numOfCarriages == 5){
         this.numOfCarriages = numOfCarriages;
+        }
+        else System.out.println("Error!");
         this.carriage = carriage;
     }
 
@@ -48,6 +51,9 @@ public class Train implements Cloneable {
     }
     public void stop(){
         System.out.println("Train " + this.trainID + " stopped");
+    }
+    public boolean setTrain(int numOfCarriages){
+          return (numOfCarriages == 5);
     }
 
     @Override

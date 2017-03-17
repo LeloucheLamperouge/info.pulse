@@ -20,9 +20,10 @@ public class Subway {
         carriage1.stop();
 
 
-        Train train = new Train(1,5,carriage);
+        Train train = new Train(1,4,carriage);
         train.setTypeOfTrain(Train.TypeOfTrain.PASSENGER);
         train.stop();
+
         System.out.println(train);
         System.out.println(train.hashCode());
         Train train1 = new Train(1,5,carriage1);
@@ -37,6 +38,10 @@ public class Subway {
         }catch (CloneNotSupportedException e){
             System.out.println("И вам тоже хрен");
         }
+
+        TrainDriver trainDriver = new TrainDriver("Vasya",train);
+        trainDriver.setDriverOnTrain(train);
+        System.out.println(trainDriver);
 
     }
 
