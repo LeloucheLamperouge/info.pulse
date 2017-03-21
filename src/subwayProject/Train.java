@@ -1,14 +1,22 @@
 package subwayProject;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 /**
  * Created by Lelouch on 10.02.2017.
  */
+@DatabaseTable(tableName = "trains")
 public class Train implements Cloneable {
 
+    @DatabaseField(canBeNull = false, useGetSet = true)
     private int trainID;
+    @DatabaseField(canBeNull = false, useGetSet = true)
     private int numOfCarriages;
-
+    @DatabaseField(canBeNull = false, useGetSet = true)
     private Carriage carriage;
+
+
 
     enum TypeOfTrain{
         PASSENGER("For passenger"), REPAIR("For repair"), SHUNTING("For shunting");

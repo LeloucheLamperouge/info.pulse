@@ -40,7 +40,7 @@ public class Subway {
         }
 
         TrainDriver trainDriver = new TrainDriver("Vasya",train);
-        trainDriver.setDriverOnTrain(train);
+       // trainDriver.setDriverOnTrain(train);
         System.out.println(trainDriver);
 
     }
