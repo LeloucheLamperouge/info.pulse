@@ -18,9 +18,9 @@ public class Train {
     }
 
     public void addCarriage(Carriage carriage){
+        //TODO add carriage logic
         carriageList.add(carriage);
     }
-
 
     public int getTrainID() {
         return trainID;

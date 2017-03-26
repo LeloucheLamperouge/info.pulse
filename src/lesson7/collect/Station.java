@@ -1,17 +1,40 @@
 package lesson7.collect;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Lelouch on 21.03.2017.
  */
 public class Station {
+    private int stationID;
     private String stationName;
-    Line line;
-    Train train;
+    List<Passenger> passengerList;
 
-    public Station(String stationName, Line line, Train train) {
-        this.stationName = stationName;
-        this.line = line;
-        this.train = train;
+
+    public Station(int stationID) {
+        this.stationID = stationID;
+        this.passengerList = new ArrayList<>();
+    }
+    public void addPassengers(Passenger passenger){
+        passengerList.add(passenger);
+    }
+
+
+    public int getStationID() {
+        return stationID;
+    }
+
+    public void setStationID(int stationID) {
+        this.stationID = stationID;
+    }
+
+    public List<Passenger> getPassengerList() {
+        return passengerList;
+    }
+
+    public void setPassengerList(List<Passenger> passengerList) {
+        this.passengerList = passengerList;
     }
 
     public String getStationName() {
@@ -22,28 +45,12 @@ public class Station {
         this.stationName = stationName;
     }
 
-    public Line getLine() {
-        return line;
-    }
-
-    public void setLine(Line line) {
-        this.line = line;
-    }
-
-    public Train getTrain() {
-        return train;
-    }
-
-    public void setTrain(Train train) {
-        this.train = train;
-    }
 
     @Override
     public String toString() {
         return "Station{" +
-                "stationName='" + stationName + '\'' +
-                ", line=" + line +
-                ", train=" + train +
+                "stationID=" + stationID +
+                ", passengerList=" + passengerList +
                 '}';
     }
 }

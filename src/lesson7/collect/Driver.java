@@ -9,7 +9,7 @@ import static java.lang.Math.random;
 /**
  * Created by Lelouch on 18.03.2017.
  */
-public class Driver {
+public class Driver  {
 
     private int driverID;
     private int driverExp;
@@ -20,13 +20,14 @@ public class Driver {
     public Driver(int driverID, String name) {
         this.driverID = driverID;
         this.driverExp = driverExp;
+        this.name = name;
     }
 
     public void addDriver(Train train) {
         drivers.add(train);
     }
     public void driverExpUpDown(){
-        driverExp += (int) Math.random()*10 - 5;
+        driverExp += (int)(Math.random()*10) - 5;
         }
 
 
@@ -67,6 +68,7 @@ public class Driver {
         return "Driver{" +
                 "driverID=" + driverID +
                 ", driverExp=" + driverExp +
+                ", driverName=" + name +
                 '}';
     }
 }
